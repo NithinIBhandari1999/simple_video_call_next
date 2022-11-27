@@ -132,6 +132,7 @@ const VideoCall = (props) => {
 			let peerConnection = refPeerConnection.current;
 			let socketObj = refSocket.current;
 
+			// room joined
 			socketObj.emit(constantSocketActions.ROOM_JOINED, {
 				roomId: roomId,
 			});
@@ -342,7 +343,7 @@ const VideoCall = (props) => {
 			let peerConnection = refPeerConnection.current;
 			peerConnection.close();
 
-            // stop tracks
+			// stop tracks
 			localStream.current.getTracks().forEach(function (track) {
 				track.stop();
 			});
@@ -353,7 +354,7 @@ const VideoCall = (props) => {
 			router.push('/');
 		} catch (error) {
 			console.error(error);
-            router.push('/');
+			router.push('/');
 		}
 	};
 
